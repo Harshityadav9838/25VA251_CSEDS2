@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>JavaScript Variables</h1>
+    <script>
+        
+       // variable are container in js to store data values. we can use var, let and const to declare variable in js. var is function scope and can be re-declared and updated. let is block scope and can be updated but not re-declared. const is block scope and cannot be updated or re-declared.         
+        var myName ="abes";
+        document.write(myName);
+        console.log(myName);
+        // js execution and scope(global and scope )
+
+        function demo() {
+            var msg ="thanks"//local
+            console.log(msg);
+        }
+        demo();
+        // var declaration using let and const
+        let msg="welcome";
+        console.log(msg);
+
+        const msg3="hello";
+        console.log(msg3);
+        
+        </script>
+</body>
+</html>
