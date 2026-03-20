@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>conditional statement</title>
+</head>
+<body><script>
+    //if
+    let age=23;
+    if(age>=18){
+        console.log("valid age for vote casting")
+    }
+    //ifelse
+    let myage=23;
+    if(myage<18){
+        console.log("wait for next year");
+    }
+    else{
+        console.log("you are eligible for voting");
+    }
+    let grade="C";
+    switch(grade){
+        case'A':result="first division";
+        break;
+        case'B':result="second division";
+        break;
+        case'C':result="third division";
+        break;
+        default:result="fail";
+    }
+    console.log(result);
+    //if else 
+    let marks=45;
+    if (marks>=60){
+        console.log("first division");
+    }
+    else if(marks<60&&marks>=40){
+        console.log("second division");
+    }
+    else if(marks<40&&marks>=30){
+        console.log("third division");
+    }
+    else{
+        console.log("fail");
+    }
+    let mark=["25","45","98","79","57"];
+    let sum;
+     for(let  i=0;i<mark;i++){
+        sum+=i
+     }console.log(sum);
+
+</script>
+    
+</body>
+</html>
