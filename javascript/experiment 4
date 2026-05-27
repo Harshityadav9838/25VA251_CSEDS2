@@ -1,0 +1,100 @@
+HTML
+<!DOCTYPE html>
+<html>
+<head>
+<title>Student Result Calculator</title>
+<link rel="stylesheet" href="experiment4.css">
+</head>
+<body>
+<div class="container">
+<h2>Student Result Calculator</h2>
+<label>Enter Number of Subjects:</label><br>
+<input type="number" id="subjects"><br>
+<button onclick="calculateResult()">Calculate Result</button>
+<div id="result"></div>
+<script src="experiment4.js"></script>
+</div>
+</body>
+</html>
+
+
+
+CSS
+body{
+    font-family: Arial;
+    background-color: #e8f5e9;
+    text-align: center;
+}
+
+.container{
+    background: #ffffff;
+    padding: 20px;
+    width: 350px;
+    margin: auto;
+    margin-top: 100px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+}
+
+input,button{
+    padding: 8px;
+    margin: 5px;
+}
+
+input{
+    border: 1px solid #4caf50;
+    border-radius: 5px;
+}
+
+button{
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+button:hover{
+    background-color: #388e3c;
+}
+
+#result{
+    margin-top: 15px;
+    font-weight: bold;
+    color: #2e7d32;
+}
+
+
+
+JAVASCRIPT
+function calculateResult(){
+let n = document.getElementById("subjects").value;
+let total = 0;
+for(let i=1;i<=n;i++){
+
+    let marks = parseFloat(prompt("Enter marks for Subject " + i));
+
+    total = total + marks;
+}
+let average = total / n;
+let grade;
+if(average >= 90)
+grade = "A";
+else if(average >= 75)
+grade = "B";
+else if(average >= 60)
+grade = "C";
+else if(average >= 40)
+grade = "D";
+else
+grade = "F";
+let result;
+if(average >= 40)
+result = "PASS";
+else
+result = "FAIL";
+document.getElementById("result").innerHTML =
+"Total Marks: " + total + "<br>" +
+"Average Marks: " + average.toFixed(2) + "<br>" +
+"Grade: " + grade + "<br>" +
+"Result: " + result;
+}
