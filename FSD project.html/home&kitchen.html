@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HOME & KITCHEN</title>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Segoe UI', Tahoma, sans-serif;
+    }
+
+    body{
+      background-image: linear-gradient(
+        to right,
+        rgb(39,180,235),
+        rgb(255,255,255),
+        rgb(255,90,90)
+      );
+    }
+
+    .header{
+      background: rgb(60,60,60);
+      color: rgb(255,255,255);
+      padding:15px;
+      text-align:center;
+      font-size:28px;
+      border-radius:0 0 15px 15px;
+    }
+
+    .search-box{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      margin:25px 0;
+      gap:10px;
+    }
+
+    textarea{
+      resize:none;
+      padding:10px;
+      font-size:18px;
+      border-radius:12px;
+      border:1px solid rgb(180,180,180);
+      width:400px;
+      box-shadow:0 4px 10px rgba(60,60,60,0.2);
+    }
+
+    .primary{
+      height:48px;
+      width:110px;
+      border:none;
+      border-radius:12px;
+      font-size:18px;
+      background: rgb(39,180,235);
+      color: rgb(40,40,40);
+      cursor:pointer;
+    }
+
+    .primary:hover{
+      background: rgb(255,90,90);
+    }.cart:hover{
+  background-color: rgb(39,180,235);
+  color: whitesmoke;
+}
+
+    .nav{
+      display:flex;
+      justify-content:center;
+      gap:40px;
+      margin-bottom:25px;
+    }
+
+    .nav a{
+      text-decoration:none;
+      background: rgb(240,240,240);
+      color: rgb(40,40,40);
+      padding:12px 25px;
+      border-radius:20px;
+      font-size:18px;
+    }
+
+    .nav a:hover{
+      background: rgb(39,180,235);
+    }
+
+    .container{
+      display:grid;
+      grid-template-columns: repeat(4,1fr);
+      gap:30px;
+      padding:30px;
+    }
+
+    .card{
+      background: rgb(255,255,255);
+      border-radius:20px;
+      padding:20px;
+      text-align:center;
+      box-shadow:0 10px 25px rgba(60,60,60,0.25);
+      transition:0.3s;
+    }
+
+    .card:hover{
+      transform: translateY(-10px);
+    }
+
+    .card img{
+      height:220px;
+      margin-bottom:15px;
+    }
+
+    .title{
+      font-size:18px;
+      font-weight:bold;
+      color: rgb(40,40,40);
+    }
+
+    .details{
+      color: rgb(90,90,90);
+      margin:10px 0;
+      font-size:15px;
+    }
+
+    .price{
+      font-size:22px;
+      color: rgb(255,90,90);
+      font-weight:bold;
+      margin-bottom:15px;
+    }
+
+    .price strike{
+      font-size:16px;
+      color: rgb(150,150,150);
+    }
+
+    .btn{
+      padding:10px 18px;
+      margin:5px;
+      border:none;
+      border-radius:12px;
+      font-size:15px;
+      cursor:pointer;
+      background: rgb(39,180,235);
+      color: rgb(40,40,40);
+    }
+
+    .btn:hover{
+      background: rgb(255,90,90);
+    }
+    .cart{
+  position:absolute;
+  top:25px;
+  right:30px;
+  background:rgb(255,255,255);
+  padding:10px 18px;
+  border-radius:25px;
+  font-weight:bold;
+  box-shadow:0 8px 18px rgba(80,80,80,0.25);
+}
+
+.cart span{
+  background:rgb(255,90,90);
+  color:rgb(255,255,255);
+  padding:3px 8px;
+  border-radius:50%;
+  margin-left:6px;
+}
+
+    @media(max-width:1024px){
+      .container{
+        grid-template-columns: repeat(2,1fr);
+      }
+    }
+
+    @media(max-width:600px){
+      .container{
+        grid-template-columns: 1fr;
+      }
+      textarea{
+        width:260px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <center>
+    <img src="shopzone2.png" width="280" height="90" />
+  </center>
+  <a href="cart.html" class="cart-link">
+  <div class="cart">Cart </div>
+</a>
+
+  <div class="header">HOME & KITCHEN</div>
+
+  <div class="search-box">
+    <textarea rows="1">Search for home & kitchen products</textarea>
+    <button class="primary">Search</button>
+  </div>
+
+  <div class="nav">
+    <a href="shopping website.html">Home</a>
+    <a href="filter.html">Filter</a>
+  </div>
+
+  <div class="container">
+
+    <div class="card">
+      <img src="HOMEAND KITCHEN.webp">
+      <div class="title">Potato Masher</div>
+      <div class="details">Stainless Steel | Durable</div>
+      <div class="price">₹159 <strike>199</strike></div>
+      <button class="btn">Buy Now</button>
+      <button class="btn">Add to Cart</button>
+    </div>
+
+    <div class="card">
+      <img src="HOMEAND KITECHEN2.webp">
+      <div class="title">Ajanta Wall Clock</div>
+      <div class="details">Plastic | White</div>
+      <div class="price">₹139 <strike>159</strike></div>
+      <button class="btn">Buy Now</button>
+      <button class="btn">Add to Cart</button>
+    </div>
+
+    <div class="card">
+      <img src="HOMEAND KITCHEN3.webp">
+      <div class="title">Bankaso Ladder</div>
+      <div class="details">Aluminium | Foldable | 4 Steps</div>
+      <div class="price">₹2,599 <strike>2,999</strike></div>
+      <button class="btn">Buy Now</button>
+      <button class="btn">Add to Cart</button>
+    </div>
+
+    <div class="card">
+      <img src="HOMEAND KITCHEN4.webp">
+      <div class="title">Knife Set</div>
+      <div class="details">Stainless Steel | Wooden Handle</div>
+      <div class="price">₹1,099 <strike>1,599</strike></div>
+      <button class="btn">Buy Now</button>
+      <button class="btn">Add to Cart</button>
+    </div>
+
+  </div>
+
+</body>
+</html>
