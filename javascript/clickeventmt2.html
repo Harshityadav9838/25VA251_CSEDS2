@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Click Event Example</title>
+</head>
+<body id="body">
+
+    <h1 id="text">Hello World</h1>
+
+    <button onclick="changeStyle()">Click Me</button>
+
+    <script>
+        function changeStyle() {
+            
+            document.getElementById("body").style.backgroundColor = "lightblue";
+
+            
+            document.getElementById("text").innerHTML = "Text Changed!";
+
+           
+            document.getElementById("text").style.fontSize = "40px";
+        }
+    </script>
+
+</body>
+</html>
