@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopping Cart</title>
+
+  <style>
+    body{
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(
+        to right,
+        rgb(116, 235, 213),
+        rgb(172, 182, 229)
+      );
+    }
+
+    header{
+      background-color: rgb(30, 39, 46);
+      color: rgb(255, 255, 255);
+      padding: 20px;
+      text-align: center;
+      font-size: 28px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .container{
+      width: 90%;
+      max-width: 1000px;
+      margin: 40px auto;
+      background-color: rgb(255, 255, 255);
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+      padding: 25px;
+    }
+
+    h2{
+      text-align: center;
+      color: rgb(44, 62, 80);
+      margin-top: 0;
+    }
+
+    table{
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th{
+      background-color: rgb(241, 242, 246);
+      padding: 14px;
+      text-align: left;
+    }
+
+    td{
+      padding: 14px;
+      text-align: left;
+    }
+
+    tr:hover{
+      background-color: rgb(249, 249, 249);
+    }
+
+    input[type=number]{
+      width: 70px;
+      padding: 6px;
+      border-radius: 6px;
+      border: 1px solid rgb(204, 204, 204);
+      text-align: center;
+    }
+
+    .price{
+      font-weight: bold;
+      color: rgb(39, 174, 96);
+    }
+
+    .checkout{
+      margin-top: 30px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .total{
+      font-size: 22px;
+      font-weight: bold;
+      color: rgb(44, 62, 80);
+    }
+    img{
+    border-radius:10px;
+    object-fit:cover;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+th,td{
+    padding:15px;
+    border-bottom:1px solid #ddd;
+}
+
+td button{
+    background:red;
+    padding:8px 15px;
+}
+
+    button{
+      background: linear-gradient(
+        to right,
+        rgb(39, 174, 96),
+        rgb(46, 204, 113)
+      );
+      color: rgb(255, 255, 255);
+      border: none;
+      padding: 12px 28px;
+      font-size: 16px;
+      border-radius: 25px;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    button:hover{
+      opacity: 0.9;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>My Shopping Cart</header>
+
+<div class="container">
+    <h2>Your Selected Items</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Image</th>
+                <th>Product</th>
+                <th>Price</th>
+                <th>Remove</th>
+            </tr>
+        </thead>
+
+        <tbody id="cartItems">
+        </tbody>
+    </table>
+
+    <div class="checkout">
+        <div class="total" id="totalPrice">
+            Total: ₹0
+        </div>
+
+        <button id="checkoutBtn">
+            Proceed to Checkout
+        </button>
+    </div>
+</div>
+
+<script>
+
+const cartItemsContainer =
+document.getElementById("cartItems");
+
+const totalPriceElement =
+document.getElementById("totalPrice");
+
+let cartItems =
+JSON.parse(localStorage.getItem("cartItems")) || [];
+
+function loadCart() {
+
+    cartItemsContainer.innerHTML = "";
+
+    let total = 0;
+
+    if(cartItems.length === 0){
+
+        cartItemsContainer.innerHTML = `
+        <tr>
+            <td colspan="4" style="text-align:center;">
+                Cart is Empty
+            </td>
+        </tr>
+        `;
+
+        totalPriceElement.innerHTML = "Total: ₹0";
+        return;
+    }
+
+    cartItems.forEach((item,index)=>{
+
+        let priceText = item.price.replace(/[^0-9]/g,"");
+        let price = parseInt(priceText);
+
+        total += price;
+
+        cartItemsContainer.innerHTML += `
+        <tr>
+            <td>
+                <img src="${item.image}"
+                     width="70"
+                     height="70">
+            </td>
+
+            <td>${item.title}</td>
+
+            <td class="price">
+                ${item.price}
+            </td>
+
+            <td>
+                <button onclick="removeItem(${index})">
+                    Remove
+                </button>
+            </td>
+        </tr>
+        `;
+    });
+
+    totalPriceElement.innerHTML =
+    `Total: ₹${total.toLocaleString()}`;
+}
+
+function removeItem(index){
+
+    cartItems.splice(index,1);
+
+    localStorage.setItem(
+        "cartItems",
+        JSON.stringify(cartItems)
+    );
+
+    localStorage.setItem(
+        "cartCount",
+        cartItems.length
+    );
+
+    loadCart();
+}
+
+document
+.getElementById("checkoutBtn")
+.addEventListener("click",()=>{
+
+    if(cartItems.length === 0){
+        alert("Your cart is empty!");
+        return;
+    }
+
+    alert("Proceeding to Checkout");
+
+});
+
+loadCart();
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FILTER</title>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Segoe UI, Tahoma, sans-serif;
+    }
+
+    body{
+      background-image: linear-gradient(
+        to right,
+        rgb(39,180,235),
+        rgb(255,255,255),
+        rgb(255,90,90)
+      );
+    }
+
+    h1{
+      background: rgb(70,70,70);
+      color: rgb(255,255,255);
+      text-align:center;
+      padding:15px;
+      border-radius:12px;
+      margin:20px;
+      letter-spacing:2px;
+    }
+
+    .layout{
+      display:grid;
+      grid-template-columns: 260px 1fr;
+      gap:30px;
+      padding:30px;
+    }
+
+    .sidebar{
+      background: rgb(255,255,255);
+      border-radius:18px;
+      padding:20px;
+      box-shadow:0 8px 20px rgba(70,70,70,0.25);
+    }
+
+    .filter-item{
+      padding:12px;
+      margin:10px 0;
+      text-align:center;
+      font-size:16px;
+      border-radius:12px;
+      background: rgb(240,240,240);
+      cursor:pointer;
+    }
+
+    .filter-item:hover{
+      background: rgb(39,180,235);
+      color: rgb(40,40,40);
+    }
+
+    .content{
+      background: rgb(255,255,255);
+      border-radius:18px;
+      padding:15px;
+      box-shadow:0 8px 20px rgba(70,70,70,0.25);
+    }
+
+    iframe{
+      width:100%;
+      height:550px;
+      border-radius:12px;
+      border:2px solid rgb(200,200,200);
+    }
+    .filter-item.active{
+    background: rgb(39,180,235);
+    color: white;
+}
+
+    @media(max-width:900px){
+      .layout{
+        grid-template-columns:1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <center>
+    <img src="shopzone2.png" width="300" height="100">
+  </center>
+
+  <h1>FILTER OPTIONS</h1>
+
+  <div class="layout">
+
+    <div class="sidebar">
+  <div class="filter-item" data-page="price.html">PRICE</div>
+  <div class="filter-item" data-page="brand.html">BRAND</div>
+  <div class="filter-item" data-page="type.html">TYPE</div>
+  <div class="filter-item" data-page="discount.html">DISCOUNT</div>
+  <div class="filter-item" data-page="offer.html">OFFER</div>
+  <div class="filter-item" data-page="newarrivals.html">NEW ARRIVALS</div>
+  <div class="filter-item" data-page="rating.html">CUSTOMER RATING</div>
+</div>
+
+    <div class="content">
+      <iframe id="filterFrame" src="price.html"></iframe>
+    </div>
+
+  </div>
+  <script>
+
+const filterItems = document.querySelectorAll(".filter-item");
+const frame = document.getElementById("filterFrame");
+
+filterItems.forEach(item => {
+
+    item.addEventListener("click", () => {
+
+        
+        filterItems.forEach(i => {
+            i.style.background = "rgb(240,240,240)";
+            i.style.color = "black";
+        });
+
+        
+        item.style.background = "rgb(39,180,235)";
+        item.style.color = "white";
+
+        
+        frame.src = item.dataset.page;
+
+    });
+
+});
+filterItems.forEach(i => i.classList.remove("active"));
+item.classList.add("active");
+
+</script>
+
+</body>
+</html>
